@@ -1,0 +1,48 @@
+README Cartoon
+
+HANDIN:
+This is my final handin of DoodleJump, I do not intend to turn in a further version.
+
+DESIGN CHOICES:
+The cartoon was written with the following classes: the App class, the PaneOrganizer class, the Game Class,
+the Doodle class, the Platform class, and the Constants class.
+
+The App class uses the start method to instantiate a new PaneOrganizer, then instantiate the scene by 
+passing the borderpane from the PaneOrganizer's borderpane accessor method as an argument. Finally, the 
+stage is told to set the scene and show.
+
+The PaneOrganizer class has the method getBorderPane which returns the borderpane for the App 
+class to display, and a clickhandler for the quit button. It also has the gameOver method which is called 
+by the game class when the Doodle falls out of the screen (past 600 pixels) - then it adds the game 
+over label to the vbox at the bottom of the borderpane. The setupBottomPane method both instantiates the game 
+class and sets up the Vbox that is graphically contained at the bottom of the borderpane. When the
+game ends, the Game Over! text is added to this bottom pane. The quit button is also here.
+
+The Game class has most of the game logic. The game class is contained by the paneorganizer and knows about
+the paneorganizer through association so it can called the gameOver method when the doodle falls out of the pane.
+The game class has a time handler that carries out most of the game animation / logic. The timeHandler calls the
+methods: updateDoodle() generatePlatforms() bounce() scroll() gameOver() each frame (every 24 milliseconds).
+updateDoodle uses mathematical equations to update the doodle's velocity and position, generate platforms creates
+new platforms to fill the screen in an arraylist, bounce changes the doodles velocity to be positive if it
+intersects a platform, scroll moves the platforms down if the doodle is moving up and is passing the midpoint of
+the screen, and gameOver stops the timeHandler if the doodle falls off the screen. The keyhandler has a switch
+that shifts the doodle left or right by 20 pixels depending on whether the left or right key was pressed.
+
+The Doodle class has a number of accessor methods and a method for storing the new velocity in the game class
+so that the Game class can effectively control the Doodle's movement. It also has the shiftLocation method
+which is used by the keyhandler.
+
+The Platform class just has accessor methods so the game class can retrieve the x and y coordinates of different
+platform's locations to check when the doodle intersects with them. It also has mutator methods for changing the
+locations of the platforms when they are creating by the Game class's generatePlatforms method.
+
+The constants class is abstract and stores the initial values for the X and Y locations of the doodle's and 1st platform's
+X and Y coordinates. It also stores the values for the borderpane's size.
+
+EXTRA CREDIT:
+The game class keeps track of score by adding 1 to the score every time the doodle bounces on a platform.
+This score is displayed in a label in the bottomPane by having the bounce method update the score to increase
+by one - the scoreLabel displays this number as a string in the bottom pane.
+
+KNOWN BUGS:
+There are no known bugs in the cartoon.
