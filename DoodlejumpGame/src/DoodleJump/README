@@ -1,7 +1,4 @@
-README Cartoon
-
-HANDIN:
-This is my final handin of DoodleJump, I do not intend to turn in a further version.
+README DoodleJump
 
 DESIGN CHOICES:
 The cartoon was written with the following classes: the App class, the PaneOrganizer class, the Game Class,
@@ -39,10 +36,7 @@ locations of the platforms when they are creating by the Game class's generatePl
 The constants class is abstract and stores the initial values for the X and Y locations of the doodle's and 1st platform's
 X and Y coordinates. It also stores the values for the borderpane's size.
 
-EXTRA CREDIT:
+Additional features:
 The game class keeps track of score by adding 1 to the score every time the doodle bounces on a platform.
 This score is displayed in a label in the bottomPane by having the bounce method update the score to increase
 by one - the scoreLabel displays this number as a string in the bottom pane.
-
-KNOWN BUGS:
-There are no known bugs in the cartoon.
